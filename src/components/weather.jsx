@@ -63,7 +63,7 @@ const Weather = ({ weatherdata, temperatureUnit, setTemperatureUnit }) => {
               </div>
             </div>
             <div className="subcont2">
-              <div className="weath">  {/*when landing on app*/}
+              <div className="weath">  {/*when landing on app this will appear*/}
                 <p>
                   Temperature: <span>- -</span>
                 </p>
