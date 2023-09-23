@@ -8,10 +8,10 @@ function App() {
   const [weather, setWeather] = useState([]);
   const [forecast, setForecast] = useState({});
   const [temperatureUnit, setTemperatureUnit] = useState("celsius"); // Add temperatureUnit state
-
+  const apiKey = process.env.REACT_APP_API_KEY;
   const searchCity = () => {
     if (search !== "") {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=4446285a81cc82feaf2982a9afacbd05`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${apiKey}`)
         .then((res) => res.json())
         .then((data) => {
           setWeather(data);
@@ -20,7 +20,7 @@ function App() {
           alert(err);
         });
 
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${search}&appid=4446285a81cc82feaf2982a9afacbd05`)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${search}&appid=${apiKey}`)
         .then((res) => res.json())
         .then((data) => {
           setForecast(data);
