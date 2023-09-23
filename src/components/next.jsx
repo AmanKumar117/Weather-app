@@ -1,4 +1,13 @@
-const Forecast = ({ forecastData }) => {
+const Forecast = ({ forecastData, temperatureUnit }) => {
+  const getTemperatureInUnit = (temperature) => {
+    if (temperatureUnit === "celsius") {
+      return Math.floor(temperature - 273) + "°C";
+    } else {
+      const fahrenheit = (temperature - 273) * (9 / 5) + 32;
+      return Math.floor(fahrenheit) + "°F";
+    }
+  };
+
   return (
     <div className="forecast">
       {forecastData &&
@@ -8,7 +17,7 @@ const Forecast = ({ forecastData }) => {
             return null;
           }
           return (
-            <div className="fore-cast">
+            <div className="fore-cast" key={index}>
               <p>
                 Date:{" "}
                 <span>
@@ -18,7 +27,7 @@ const Forecast = ({ forecastData }) => {
                 </span>
               </p>
               <p>
-                Temperature: <span>{Math.floor(data.main.temp - 273)}°C</span>
+                Temperature: <span>{getTemperatureInUnit(data.main.temp)}</span>
               </p>
               <p>
                 Weather Type: <span>{data.weather[0].main}</span>
@@ -41,3 +50,4 @@ const Forecast = ({ forecastData }) => {
 };
 
 export default Forecast;
+
