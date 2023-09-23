@@ -41,9 +41,6 @@ function App() {
           <Weather weatherdata={weather} temperatureUnit={temperatureUnit} setTemperatureUnit={setTemperatureUnit} />
         </div>
         <div>
-          <h2 className="head2">Forecast</h2>
-        </div>
-        <div>
           <Forecast forecastData={forecast} temperatureUnit={temperatureUnit} /> {/* Pass temperatureUnit to Forecast */}
         </div>
       </div>

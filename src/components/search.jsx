@@ -1,7 +1,7 @@
 const Search = (props) => {
     return (
         <div className="inp">
-            <h1 className="head1">Weather App</h1>
+            <h1 className="head1">WeatherPulse</h1>
             <div className="inp-enter">
                 <input className="ser-inp"
                 onChange={(e) => {

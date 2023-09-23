@@ -4,19 +4,16 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(
-    to right,
-    rgb(0, 82, 212),
-    rgb(67, 100, 247),
-    rgb(111, 177, 252)
-  );
+  background-image: url('/public/images/default.jpg');
+  background-size: cover; /* Controls how the image is sized within the element */
+  background-position: center center;
 }
-.subcont1 img {
-  border: 1px solid white;
+.sub-subcont2 img {
+  border: 1px solid rgb(4, 4, 4);
   background-color: lightgrey;
   border-radius: 2em;
-  height: fit-content;
-  width: fit-content;
+  height: 80px;
+  width: 80px;
 }
 
 .head1 {
@@ -93,8 +90,7 @@ body {
   padding: 10px;
   font-weight: bold;
   color: white;
-  background: linear-gradient(to right, rgb(142, 45, 226), rgb(74, 0, 224));
-  box-shadow: 10px 10px 5px rgb(176, 57, 154);
+  box-shadow: 10px 10px 5px rgb(52, 50, 52);
 }
 .subcont1 {
   flex: 1;
@@ -102,6 +98,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 .sub-subcont1 {
   flex: 1;
@@ -119,6 +116,8 @@ body {
 .subcont2 button {
   width: fit-content;
   border-radius: 8rem;
+  border: 1px solid black;
+  font-weight: bold;
 }
 .tooltip {
   position: absolute;
@@ -144,6 +143,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 20px;
+  color: black;
 }
 .forecast {
   margin-top: 2em;
@@ -153,20 +153,26 @@ body {
   border-radius: 10px;
   flex-wrap: wrap;
 }
+.forecast-cont{
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 .fore-cast {
   border: none;
-  width: 19%;
+  width: fit-content;
   padding: 5px;
   display: flex;
   font-weight: bold;
-  color: white;
+  color: black;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 10px;
   border-radius: 15px;
-  box-shadow: 10px 10px 5px lightseagreen;
-  background: linear-gradient(to right, rgb(241, 39, 17), rgb(245, 175, 25));
+  box-shadow: 10px 10px 5px rgb(201, 218, 217);
+  background: linear-gradient(to right, rgb(150, 150, 153), rgb(210, 219, 223));
 }
 button:hover {
   cursor: pointer;

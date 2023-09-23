@@ -9,45 +9,42 @@ const Forecast = ({ forecastData, temperatureUnit }) => {
   };
 
   return (
-    <div className="forecast">
-      {forecastData &&
-        forecastData.list &&
-        forecastData.list.slice(0, 10).map((data, index) => {
-          if (!data.dt) {
-            return null;
-          }
-          return (
-            <div className="fore-cast" key={index}>
-              <p>
-                Date:{" "}
-                <span>
-                  {new Date(
-                    (data.dt + index * 86400) * 1000
-                  ).toLocaleDateString()}
-                </span>
-              </p>
-              <p>
-                Temperature: <span>{getTemperatureInUnit(data.main.temp)}</span>
-              </p>
-              <p>
-                Weather Type: <span>{data.weather[0].main}</span>
-              </p>
-              <p>
-                Humidity: <span>{data.main.humidity}</span> %
-              </p>
-              <p>
-                Wind Speed: <span>{data.wind.speed}</span> m/s
-              </p>
-              <img
-                src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                alt="weather"
-              />
-            </div>
-          );
-        })}
+    <div className="weather-cont">
+      <h2>Coming Week</h2>
+      <div className="forecast-cont">
+      <div className="forecast">
+        {forecastData &&
+          forecastData.list &&
+          forecastData.list.slice(0, 8).map((data, index) => {
+            if (!data.dt) {
+              return null;
+            }
+            const date = new Date((data.dt + index * 86400) * 1000);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString(undefined, options);
+
+            return (
+              <div className="fore-cast" key={index}>
+                <p>
+                  <span>{formattedDate}</span>
+                </p>
+                <p>
+                  <span>{getTemperatureInUnit(data.main.temp)}</span>
+                </p>
+                <p>
+                  <span>{data.weather[0].main}</span>
+                </p>
+                <img
+                  src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                  alt="weather"
+                />
+              </div>
+            );
+          })}
+      </div>
+      </div>
     </div>
   );
 };
 
 export default Forecast;
-
